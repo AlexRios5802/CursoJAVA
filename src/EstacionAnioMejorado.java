@@ -32,6 +32,7 @@ public class EstacionAnioMejorado {
             case 9, 10, 11  -> "Otoño";
             default -> "Estación desconocida";
         };
+        System.out.println(estacion);
 
 
 //        System.out.println("-=-=-=-=-= VERSION 3 -=-=-=-=-=");
