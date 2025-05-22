@@ -13,15 +13,23 @@ public class Calculadora {
                     1. Suma
                     2. Resta
                     3. Multiplicación
-                    4. Division
+                    4. División
                     5. Salir
                     Escoje una opción:\s""");
+
             var opcion = consola.nextInt();
 
+            // Si la opción es salir, terminamos antes de pedir operandos
+            if (opcion == 5) {
+                System.out.println("Saliendo del programa de la Calculadora!");
+                salir = true;
+                continue;
+            }
+
+            // Solo se piden los operandos si la opción es válida y no salir
             System.out.print("Dame el valor 1: ");
             var operando1 = consola.nextDouble();
-
-            System.out.print("Dame el valor 2:" );
+            System.out.print("Dame el valor 2: ");
             var operando2 = consola.nextDouble();
 
             switch (opcion){
@@ -36,20 +44,17 @@ public class Calculadora {
                 case 3 -> {
                     var multiplicacion = operando1 * operando2;
                     System.out.printf("Resultado de la multiplicación es: %.2f%n%n", multiplicacion);
-
                 }
                 case 4 -> {
-                    var division = operando1 / operando2;
-                    System.out.printf("Resultado de la division es: %.2f%n%n", division);
-
-                }
-                case 5 -> {
-                    System.out.println("Saliendo del programa de la Calculadora!");
-                    salir = true;
+                    if (operando2 != 0){
+                        var division = operando1 / operando2;
+                        System.out.printf("Resultado de la división es: %.2f%n%n", division);
+                    } else {
+                        System.out.println("División inválida\n");
+                    }
                 }
                 default -> System.out.println("Opción inválida, selecciona otra opción...");
             }
         }
-
     }
 }
